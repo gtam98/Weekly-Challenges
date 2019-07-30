@@ -1,2 +1,2 @@
 # Weekly-Challenges
-Testcases,HInts and Solutions of Weekly Challenges would be posted over here
+Testcases,Hints and Solutions of Weekly Challenges would be posted over here

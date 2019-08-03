@@ -1,11 +1,69 @@
+import java.io.*;
 
-Testcases:
+class Cal
+{
+	public Cal()
+	{
+		int dt[] = {01,01,0001} ;
+		
+		Console con = System.console();
+		
+		String date[] =con.readLine("Enter date : ").split("/");
+		
+		//Converting String into int
+		int dat[] = new int[3];
+		for(int i=0 ; i<date.length ; i++)
+		{
+			try
+			{
+				dat[i] = Integer.parseInt(date[i]);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Invalid date!");
+				return;
+			}
+		}
+		
+		if(dat[0]<01 || dat[1]<01 || dat[2]<0001)
+		{
+			System.out.println("Invalid date!");
+			return;
+		}
+		//System.out.println("Accepted");
+		int days = dat[0] + 31*(dat[1] - dt[1]) + 365*(dat[2] - dt[2]);
+		int r = (days%7)-1;
+		switch(r)
+		{
+			case 0 :System.out.println("Monday("+ r +")");break;
+			case 1 :System.out.println("Tuesday("+ r +")");break;
+			case 2 :System.out.println("Wednesday("+ r +")");break;
+			case 3 :System.out.println("Thursday("+ r +")");break;
+			case 4 :System.out.println("Friday("+ r +")");break;
+			case 5 :System.out.println("Saturday("+ r +")");break;
+			case 6 :System.out.println("Sunday("+ r +")");break;
+		}
+	}
+}
 
-02/01/1
-28/02/100
-16/05/1000
-03/08/2019
-31/02/2999
-17/05/3400
-31/01/9999999
-31/12/999999999999
+class DayCheck
+{
+	public static void main(String args[])
+	{
+		Console con = System.console();
+		//Boolean tr = true;
+		while(true)
+		{
+			int option = Integer.parseInt(con.readLine("Enter \n1 : To play game\n2 : Exit\n"));
+			switch(option)
+			{
+				case 1:
+						{
+							Cal c = new Cal();
+						}
+						break;
+				case 2:System.exit(1);
+			}
+		}
+	}
+}
